@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Likes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/Capture.PNG">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style type="text/css">
+        body{
+            background-color: white;
+            background-image: url("/images/Dark-color-wood-texture-background-vector-09.jpg");
+        }
+        #header{
+               position:fixed;
+               top:0%;
+               width:100vw;
+               height:10%;
+               background:linear-gradient(to right, #3b3c3d,#6d6e70);
+               border:0.1vmin solid white;
+               overflow: hidden;
+               }
+         #header img{
+            float: left;
+            width: 8vw;
+            height: 7.5vh;
+            background: #555;
+            cursor: pointer;
+            margin-left: 0.5vw;
+            margin-top:0.5%;
+            /*border-radius: 15px;*/
+        } 
+        #header #username{
+            font-family: 'Krub', sans-serif;
+            position:absolute;
+            color:#ff6600;
+            left:75%;
+            top:20%;
+            bottom:20%;
+            border: 2vmin lightgrey;
+            font-size:3vmin;
+            justify-content:center;
+        }
+        #username p{
+            justify-content:center;
+        }
+        #username p:hover{
+            color: red;
+        }
+        #eachContainer{
+            position: static;
+            margin-top: 10%;
+            margin-left:10%;
+            margin-right: 20%;
+            margin-bottom: -10%;
+            width:80%;
+            padding:3.5vmin 2vmin 2vmin 3.5vmin;
+        }
+        #pInfo{
+            float: right;
+            border: 2px solid grey;
+            margin-top: -31vh;
+            margin-left: -10vw;
+            position: static;
+            padding-top: 1.5vmin;
+            padding-bottom: 1vmin;
+            padding-left: 2.5vmin;
+            padding-top: 1vmin;
+            width:60%;
+            height:28vmin;
+            background-color: lightgrey;
+            align-items: center;
+            margin-right: 13vw;
+            border-radius: 5%/16%;
+        }
+        p
+        {
+            font-family: 'Krub', sans-serif;
+            font-size: 2vmin;
+            font-weight: bold;
+        }
+        #imgContainer{
+            width:33vmin;
+            height:33vmin;
+        }
+        #imgContainer img{
+            align-items: center;
+            position: static;
+            margin-left: 1.3vmin;
+            margin-right: 1.3vmin;
+            margin-top: 1.3vmin;
+            margin-bottom: 1.3vmin;
+            border-radius: 50%;
+        }
+        .fa{
+            font-size: 2.5vmin;
+        }
+        .imgFit{
+            width:29vmin;
+            height: 29vmin;
+        }
+        .mName{
+            font-size: 2.5vmin;
+        }
+        #mname
+        {
+            color: green;
+            font-weight: bold;
+            font-size: 3.2vmin;
+        }
+        #mname:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .mGender
+        {
+            margin-left: 2vmin;
+        }
+        #mAge
+        {
+            margin-left: 2vmin;
+        }
+        #gIcon
+        {
+            margin-left: 1vmin;
+        }
+        #err{
+            font-weight: bold;
+            font-size: 5vmin;
+            color:lightgrey;
+            margin-top: 20vh;
+            text-align: center;
+        }
+        #home{
+            position: absolute;
+            left:90%;
+            top:2.5%;
+            width:5%;
+            height:5%;
+            color:white;
+            font-size:2.5vmin;
+            cursor: pointer;
+            border:1px solid cyan;
+            
+            justify-content:center;
+        }
+        #homeTxt{
+            position:absolute;
+            top:4%;
+            left:15%;
+            font-size:2.5vmin;
+            letter-spacing:0.5vmin;
+            font-family:monospace;
+            font-weight:800;
+            color: white;
+        }
+        #homeIcon{
+            position:absolute;
+            top:20%;
+            left:35%;
+            color:cyan;
+        }
+        #MsgFrnd{
+            margin-left:90%;
+            margin-top:-5%;
+
+        }
+        #MsgFrnd > button{
+            border:none;
+            background-color:lightgrey;
+            /*border:2px solid grey;*/
+            border-radius:50%;
+            height:3vh;
+        }
+        .cus{
+            font-size:3vmin;
+            cursor:pointer;
+        }
+        #chatbox{
+            position:fixed;
+            bottom:0;
+            right:1%;
+            width:18%;
+            height:35%;
+            background-color: lightgrey;
+            border-top-left-radius:8%;
+            border-top-right-radius:8%;
+            border:0.2vmin solid grey;
+        }
+        #chatHeader{
+            position:absolute;
+            border: 1px solid grey;
+            width:100%;
+            height:13%;
+            border-top-left-radius:8% 54%;
+            border-top-right-radius:8% 58%;
+            background-color:#296868;
+            padding-left:5%;
+            padding-top:2.5%;
+            color:white;
+            letter-spacing:2%;
+        }
+        #chatSpace{
+            position:absolute;
+            top:13%;
+            height:74%;
+            width:100%;
+            border-bottom:1px solid grey;
+            overflow-y: auto;
+        }
+        #chatMsg{
+            position: absolute;
+            color:white;
+            top:87%;
+            height:10%;
+            width:100%;
+        }
+        #msgip{
+            position:absolute;
+            background-color:#296868;
+            padding-left:2%;
+            border:none;
+            height:130%;
+            width:87%;
+        }
+        #msgsbt{
+            position: absolute;
+            background-color:#296868;
+            border:none;
+            border-left:2px solid grey;
+            left:87%;
+            height:130%;
+            width:13%;
+        }
+        #msgsbt:hover
+        {
+            background-color:lightgrey;
+        }
+        *:focus{
+            word-break: break-all;
+            outline:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img src="/images/logo2.png" alt="logos" onclick="location.href='/dashboard' " title="home page" > 
+        <span  id="username"><p style="font-size:2vw;"> Hi, <%= user.pname %> </p></span>
+    </div>
+    <div id="pContainer" >
+        <% if( members.length > 0 ) { %>
+            <% for( var i=0; i< members.length; i++ ) { %>
+                <div id="eachContainer">
+                    <div id="imgContainer" align="left">
+                        <% if (members[i].image) { %>
+                        <img class="imgFit" src="/userImages/<%= members[i].pname %>.jpg">
+                        <% } else { %>
+                        <img class="imgFit" src="/images/images_5.jpg" alt="Upload image">
+                        <% } %>
+                    </div>
+                    <div id="pInfo" class="userInfo" >
+                        <p class="mName"><span id="mname" onclick="location.href='http://127.0.0.1:8081/dashboard/userProfile?partner=<%= members[i].pname %>'"><%= members[i].pname %></span><span class="mGender"> <%= members[i].gender %><i class="fa fa-<%= members[i].gender %>" id="gIcon"></i></span>
+                        <%
+                        function calcAge(dateString) {
+                          var birthday = new Date(dateString);
+                          var ageDifMs = Date.now() - birthday.getTime();
+                          var ageDate = new Date(ageDifMs); // miliseconds from epoch
+                          return Math.abs(ageDate.getFullYear() - 1970);
+                        } 
+                        function toFeet(n) {
+                          var realFeet = ((n*0.393700) / 12);
+                          var feet = Math.floor(realFeet);
+                          var inches = Math.round((realFeet - feet) * 12);
+                          return feet + "\'" + inches;
+                        }
+                        function shortListed(shortlistedArray,str) {
+                          return (shortlistedArray.indexOf(str) > -1);
+                        }
+                        %>
+                        <span id="mAge"><%= calcAge(members[i].dob) %> Years </span></p>
+                        <p class="mReligion">
+                            <span class="rKey">Religion : </span><span class="rValue"><%= members[i].religion %>, </span>
+                            <span class="hKey">Height : </span><span class="hValue"><%= toFeet(members[i].height) %></span>
+                        </p>
+                        <p class="mEdu">
+                            <span class="mKey">Education : </span><span class="mValue"><%= members[i].qualification %> </span>
+                        </p>
+                        <p class="mOccupation">
+                            <span class="mKey">Occuption : </span><span class="mValue"><%= members[i].occupation %> </span>
+                        </p>
+                        <p class="mStatus">
+                            <span class="mKey">Marital Status : </span><span class="mValue"><%= members[i].mStatus %> </span>
+                        </p>
+                        <p class="mCollege">
+                            <span class="mKey">Studied at </span><span class="mValue"><%= members[i].college %> </span>
+                        </p>
+                        <form id="MsgFrnd" action="/dashboard/friendname" method="GET">
+                            <button type="submit" name="frndname" value="<%= members[i].pname %>">
+                        </form>
+                        <label for="MsgFrnd">
+                            <span class="glyphicon glyphicon-comment cus"></span>
+                        </label>
+                    </div>
+                </div>
+            <% } %>
+        <% } else { %>
+            <% if(flag=1) { %> 
+            <p id="err">OH Please, Give them a chance!! </p>
+            <p id="err">A bachelor's life is a fine breakfast, a flat lunch, and a miserable dinner</p>
+            <% } else { %>
+            <p id="err">In the chaos of the world, you'll definitely find love... </p>
+            <p id="err">Ego is the big black door that bars the way to your soul</p>
+            <% } %>
+        <% } %>
+    </div>
+    <% if(friendFlag!=0) { %>
+        <div id="chatbox">
+        <div id="chatHeader"><%= friendname %></div>
+        <div id="chatSpace">
+        <% for (let i=0; i< chats.length; i++) { %>
+           <% function toTime(TimeStamp){
+                return moment(TimeStamp).format('YYYY-MM-DD HH:mm');
+              }
+           %>
+           <% if(chats[i].friendname==friendname)  { %> 
+              <div id="msgBox" style="position:relative;height:10%;">
+                <p id="Txt" style="background-color:#296868;position:absolute;right:0;display:inline;color:white;
+              font-size:2.2vmin;padding:1%;border-top-left-radius:12.5% 50%;border-bottom-left-radius:12.5% 50%;border:2px solid lightgrey;"><%= chats[i].userchat %></p>
+                <p class="msgTime" style="position:absolute;right:2%;display:inline;color:grey;
+              font-size:0.8vmin;top:155%;"><%= toTime(chats[i].msgtime) %></p>
+                </div><br>
+           <% } else { %>
+              <div style="position:relative;height:10%;">
+                <img  style="position:absolute;top:20%;width:3vmin;height:3vmin;border-radius:50%;background-image:url(/images/images_5.jpg);" src="/userImages/<%= friendname %>.jpg" >
+                <p style="background-color:#9ba5a3;position:absolute;left:10%;display:inline;font-size:2.2vmin;
+                          padding:1%;border-top-right-radius:12.5% 50%;border-bottom-right-radius:12.5% 50%;border:2px solid lightgrey;"><%= chats[i].userchat %></p>
+                <p class="msgTime" style="position:absolute;left:10%;display:inline;color:grey;
+              font-size:0.8vmin;top:155%;"><%= toTime(chats[i].msgtime) %></p>
+              </div><br>
+        <% } %>
+        <% } %>
+        </div>
+        <form id="chatMsg" action="/dashboard/chatlog" method="POST">
+            <input id="msgip" type="textarea" name="message" rows="3" cols="20" placeholder="Type a msg ...">
+            <button id="msgsbt" type="submit" name="frndname" value="<%= friendname %>">
+                <i class="material-icons" style="margin-left:-20%;margin-top:20%;color:black;font-size:3.5vmin;">subdirectory_arrow_left</i>
+            </button>
+        </form>
+    </div>
+    <% } else { %>
+       
+    <% } %>
+    <div id="home" onclick="location.href='/dashboard' ">
+        <p id="homeTxt">Home</p><p><span id="homeIcon" class="glyphicon glyphicon-home"></span></p>
+    </div>
+    
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $("#homeIcon").hide();
+           $("#home").hover(function(){
+                $("#homeTxt").hide();
+                $("#homeIcon").show();
+           },
+              function(){
+              $("#homeTxt").show();
+                $("#homeIcon").hide();
+           });
+        var scroller=document.getElementById("chatSpace");
+        scroller.scrollTop=scroller.scrollHeight;
+    });
+</script>
+</html>

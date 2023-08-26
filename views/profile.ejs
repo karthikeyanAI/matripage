@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:300,400" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/Capture.PNG">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style type="text/css">
+    	body{
+    		background:url("/images/wallpaper3.jpg");
+    		background-repeat:no-repeat;
+    		background-size:100% 100vh;
+    	}
+        #header{
+               position:absolute;
+               width:100vw;
+               height:10vh;
+               background:linear-gradient(to right, #3b3c3d,#6d6e70);
+               border:1px solid white;
+               overflow: hidden;
+               margin-top: -16.5vh;
+               margin-left: -80%;
+               font-family: 'Krub', sans-serif;
+            color:#ff6600;
+            left:80%;
+            top:16.6%;
+            border: 2px lightgrey;
+            font-size:2.5vmin
+            background-color: #6d6e70;
+            justify-content:center;
+               }
+         #header img{
+        float: left;
+        width: 8vw;
+        height: 7.5vh;
+        background: #555;
+        cursor: pointer;
+        margin-left: 0.5vw;
+        margin-top:0.5%;
+        /*border-radius: 15px;*/
+        } 
+    	#box1{
+    		position:absolute;
+    		left:20%;
+    		top:12%;
+    		width:60%;
+            height:30%;
+    		border:0.2vmin solid white;
+    	}
+    	#box1 > img{
+    		position: absolute;
+    		left:1%;
+    		top:5%;
+    		height:90%;
+    		width:25%;
+    		border:1px solid cyan;
+    	}
+    	.description{
+    		position: absolute;
+    		/*border:1px solid cyan;*/
+    		left:28%;
+    		top:5%;
+    		right:1%;
+    		bottom:0%;
+    		font-size:2.3vmin;
+    		color:white;
+    		padding:4%;
+    	}
+    	#name{
+    		position: absolute;
+    		top:10%;
+    		font-family: monospace;
+    		font-weight:700;
+    		font-size:4vmin;
+    		letter-spacing:0.3vmin;
+    		color:cyan;
+    		text-shadow:1vmin 1vmin black;
+    	}
+    	#about{
+    		position: absolute;
+    		top:40%;
+    	}
+    	#likeBtn{
+    		position: absolute;
+    		left:90%;
+    		width:20%;
+    		top:20%;
+    	}
+    	#box2,#box3{
+    		position:absolute;
+    		left:20%;
+    		top:45%;
+    		width:29%;
+    		height:45%;
+    		color:white;
+    	}
+    	#box3{
+             left:51%;
+    	}
+    	table,th,td{
+    		border: 0.2vmin solid grey;
+    		padding:2%;
+    	}
+    	.left{
+    		color:cyan;
+    		font-size:2.3vmin;
+    		letter-spacing: 0.5vmin;
+            text-shadow: 0.5vmin 0.5vmin black;
+    	}
+    	.right{
+    		font-family:monospace;
+    		font-size:2.3vmin;
+    	}
+    	.fa{
+            font-size: 2vmin;
+        }
+        .fa-thumbs-up
+        {
+            font-size: 2.6vmin;
+        }
+        .fa-trash
+        {
+            font-size: 3vmin;
+            color: red;
+        }
+        .fa-trash:hover
+        {
+            background-color: red;
+            color: white;
+        }
+        #btnSubmitlike{
+        	position:absolute;
+        	left:0%;
+        	top:0%;
+        	border: none;
+        }
+        #btnSubmitlike:hover{
+            background-color:white ;
+            color:#3B5998;
+        }
+        #btnSubmitdel{
+            position:absolute;
+            left:0%;
+            top:0%;
+            border: none;
+        }
+        #btnSubmitdel:hover{
+            background-color:red ;
+            color:white;
+        }
+        #disableBtnSubmitlike{
+        	
+            position:absolute;
+        	left:0%;
+        	top:0%;
+        	border: none;
+        	display: none;
+        }
+        #home{
+            position: absolute;
+            left:85%;
+            top:2vh;
+            width:5%;
+            height:5%;
+            color:white;
+            font-size:2.7vmin;
+            cursor: pointer;
+            border:1px solid cyan;
+            
+            justify-content:center;
+        }
+        #homeTxt{
+            position:absolute;
+            top:4%;
+            left:15%;
+            letter-spacing: 0.2vmin;
+            font-family:monospace;
+            font-weight:800;
+            color: white;
+        }
+        #homeIcon{
+            position:absolute;
+            top:20%;
+            left:35%;
+            color:cyan;
+        }
+        *:focus{
+        	outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img src="/images/logo2.png" alt="logos" onclick="location.href='/dashboard' " title="dashboard" >
+    </div>
+	<div id="box1">
+		    <% if (user.image) { %>
+		    <img  src="/userImages/<%= user.pname %>.jpg">
+		    <% } else { %>
+		    <img  src="/images/images_5.jpg" alt="Upload image">
+		    <% } %>
+		    <div class="description">
+		    	<p id="name">
+		    	<%= user.pname %>,
+			    </p>
+			    <p id="about">
+			    	<%= user.description %> 
+			    </p>
+		    </div>
+		    <% if( calledUser.pname!=user.pname) { %>
+            <div id="likeBtn">
+                <form action="/dashboard/like" method="POST">
+                    <button name="like" id="btnSubmitlike" type="submit" value="<%= user.pname %>" title="Interested"><span><i class="fa fa-thumbs-up"></i></span></button>
+                </form>
+                 <% for(var i=0; i< likedUsers.length ; i++) { %>
+                          <% if (likedUsers[i] !='"') { %> 
+                              <% if (likedUsers[i] == user.pname ) { %>
+                                  <button style="display:block;" id="disableBtnSubmitlike" title="Liked"><span><i class="fa fa-thumbs-up"></i></span></button>
+                              <% } %>
+                           <% } %>
+                    <% } %>
+            </div>
+            <% } else { %>
+            <div id="likeBtn">
+                <form action="/dashboard/userProfile/delete" method="POST">
+                    <button name="del" id="btnSubmitdel" type="submit" value="<%= user.pname %>" title="Delete my Profile"><span><i class="fa fa-trash"></i></span></button>
+                </form>
+            </div>
+            <% } %>
+	</div>
+	<table id="box2">
+		<tr>
+			<td class="left"> First Name </td>
+			<td class="right"> <%= user.fname %></td>
+		</tr>
+		<tr>
+			<td class="left"> Last Name </td>
+			<td class="right"><%= user.lname %></td>
+		</tr>
+		<tr>
+			<td class="left"> Gender </td>
+			<td class="right"> <%= user.gender %></td>
+		</tr>
+		<tr>
+			<td class="left"> Date Of Birth </td>
+			<td class="right"><%= (user.DOB).toDateString() %></td>
+		</tr>
+		<tr>
+			<td class="left"> Religion </td>
+			<td class="right"><%= user.religion %></td>
+		</tr>
+		<tr>
+			<td class="left"> Mother Tongue </td>
+			<td class="right"><%= user.motherTongue%></td>
+		</tr>
+        <tr>
+            <td class="left"> Email </td>
+            <td class="right"><%= user.email%></td>
+        </tr>
+	</table>
+	<table id="box3">
+		<tr>
+			<td class="left"> Height </td>
+			<td class="right"><%= user.userHeight %>cm</td>
+		</tr>
+	    <tr>
+			<td class="left"> Marital Status </td>
+			<td class="right"><%= user.mStatus%></td>
+		</tr>
+		<tr>
+			<td class="left"> Qualificaiton </td>
+			<td class="right"><%= user.qualification %></td>
+		</tr>
+        <tr>
+            <td class="left"> College </td>
+            <td class="right"><%= user.college%></td>
+        </tr>
+		<tr>
+			<td class="left"> country </td>
+			<td class="right"><%= user.country %></td>
+		</tr>
+		<tr>
+			<td class="left"> Occupation </td>
+			<td class="right"><%= user.occupation %></td>
+		</tr>
+		<tr>
+			<td class="left"> Salary </td>
+			<td class="right"><%= user.salary %> INR</td>
+		</tr>
+	</table>
+    <div id="home" onclick="location.href='/dashboard' ">
+        <p id="homeTxt">Home</p><p><span id="homeIcon" class="glyphicon glyphicon-home"></span></p>
+    </div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+           $("#disableBtnSubmitlike").hover(function(){
+                  $("#disableBtnSubmitlike").css("cursor","not-allowed");
+           },function(){
+                  $("#disableBtnSubmitlike").css("cursor","not-allowed");
+           }
+           );
+           $("#homeIcon").hide();
+           $("#home").hover(function(){
+                $("#homeTxt").hide();
+                $("#homeIcon").show();
+           },
+              function(){
+              $("#homeTxt").show();
+                $("#homeIcon").hide();
+           });
+	});
+</script>
+</html>

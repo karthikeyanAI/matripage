@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Matrimony</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <link rel="shortcut icon" href="./images/Capture.PNG">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style type="text/css">
+        #header{
+               position:fixed;
+               top:0%;
+               width:100vw;
+               height:10vmin;
+               background:linear-gradient(to left,#263838,#545656);
+               border:0.1vmin solid white;
+               }
+        #header img{
+            float: left;
+            width: 8vw;
+            height: 7.5vh;
+            background: #555;
+            cursor: pointer;
+            margin-left: 0.5vw;
+            margin-top:0.5%;
+        /*border-radius: 15px;*/
+        } 
+        #searchIcon,#logoutIcon{
+            position:absolute;
+            color:#66ff99;/*#ff6600;
+            /*background-color:white;*/
+            font-size:3vmin;
+            left:70%;
+            top:30%;
+        }
+        #dpDisplay{
+             position:absolute;
+             background:url("/images/profilePic.jpg");
+             width:26.5vmin;
+             height:26.5vmin;
+             border-radius:50%;
+             left:25%;
+             top:10%;
+        }
+        #dpDisplay > img{
+            width:26.5vmin;
+            height:26.5vmin;
+            border-radius:50%;
+            border:0.3vmin solid white/*#66ff99*/;
+        }
+        #logoutIcon{
+            left:95%;
+            top:25%;
+            text-decoration:none;
+            border: none;
+            font-size:3.5vmin;
+            font-family:monospace;
+            background-color: #545656;/*:linear-gradient(to left,#263838,#545656);*/
+            border-radius: 50%;
+            justify-content:center;
+        }
+        #searchIcon{
+            position:absolute;
+            left:85%;
+            top:25%;
+            width:3%;
+            height:51%;
+            background:linear-gradient(to left,#263838,#545656);
+            border-radius:50%;
+            cursor:pointer;
+        }
+        .custom-color{
+            position:absolute;
+            left:25%;
+            top:20%;
+            font-size:3.2vmin;
+            justify-content:center;
+        }
+        #searchInput{
+            position: absolute;
+            border: none;
+            font-size:3.5vmin;
+            background-color:#6d6e70; 
+            right:12.5%;
+            top:25%;
+            width:52%;
+            height:51%;
+            color:#66ff99;
+            padding-left:2%;
+            border-radius:2%/49%;
+            text-decoration: none;
+        }
+        #profile{
+            position: relative;
+            background:linear-gradient(to left,#263838,#545656);/*url("/images/bck1.jpg");*/
+            border:1px solid white;
+            margin-top:10vh;
+            height:89.8vmin;
+            width:29.5vw;
+            z-index: 1;
+            border-bottom:1px solid white;
+        }
+        #preferenceForm{
+            position: relative;
+            margin-left:35vw;
+            margin-top:-81.5vh;
+            width:58.5vw;
+            height:15vh;
+            background:linear-gradient(to top ,#263838,#545656);
+            opacity:0.8;
+        }
+        #pform{
+            position: absolute;
+            top:40%;
+            left:3%;
+            font-size:2.4vmin;
+        }
+        #pform > input{
+            border: none;
+            border-radius:1vmin ;
+        }
+        #title{
+            position:absolute;
+            font-size:2.2vmin;
+            color:#66ff99;/*#050505;*/
+            font-weight:800;
+            top:16%;
+            width:100%;
+            background-color:black;
+        }
+        #title1{
+            position: absolute;
+            left:3.3%;
+        }
+        #title2{
+            position: absolute;
+            left:27.5%;
+        }
+        #title3{
+            position: absolute;
+            left:46.5%;
+        }
+        #title4{
+            position: absolute;
+            left:71%;
+        }
+        #bckImage>img{
+            position:relative;
+            margin-left:29.5vw;
+            margin-top:-23.2vmin;
+            z-index: -1;
+            width:70.5vw;
+            height:89.6vmin;
+            border-right:1px solid white;
+            border-bottom:1px solid white;
+            
+        }
+        .slideShow{
+            position: relative;
+            z-index:5;
+            margin-top:-20%;
+            margin-left:30%;
+            height:35vh;
+            width:70vw;
+        }
+        .slide1{
+            position: absolute;
+            background:linear-gradient(to right bottom,#263838,#a3c2c2);
+            border-radius:1vmin;
+            left:8%;
+            top:0%;
+            width:25%;
+            height:100%;
+
+        }
+        .slide2{
+            position: absolute;
+            left:36.5%;
+            top:0%;
+            width:25%;
+            height:100%;
+            background:linear-gradient(to right bottom,#263838,#a3c2c2);
+            border-radius:1vmin;
+        }
+        .slide3{
+            position: absolute;
+            left:65%;
+            top:0%;
+            width:25%;
+            height:100%;
+            background:linear-gradient(to right bottom,#263838,#a3c2c2);
+            border-radius:1vmin;
+        }
+        .slide1 >img ,.slide2 > img, .slide3 > img{
+            position:absolute;
+            background:url("/images/images_5.jpg");
+            background-repeat:no-repeat;
+            background-size:100vmin 100vmin;
+            top:4%;
+            left:4%;
+            width:92%;
+            height:60%;
+        }
+        
+        .prev{
+              position:absolute;
+              left:2%;
+              top:50%;
+              font-size:3.4vmin;
+              cursor:pointer;
+        }
+        .next{
+            position:absolute;
+            left:95%;
+            top:50%;
+            font-size:3.4vmin;
+            cursor: pointer;
+        }
+        .mName{
+            position: absolute;
+            top:68%;
+            left:5%;
+            font-size:2.8vmin;
+            font-weight:700;
+            color:#ff6666;
+        }
+        .mGender{
+            font-size:2.4vmin;
+            font-weight:400;
+            color:#660033;
+        }
+        .mReligion{
+            position:absolute;
+            top:80%;
+            left:5%;
+        }
+        .rKey,.hKey{
+            font-size:2vmin;
+            font-weight:700;
+        }
+        .mEdu{
+            position: absolute;
+            top:90%;
+            left:5%;
+        }
+        .mKey{
+            font-size:2vmin;
+            font-weight:700;
+        }
+        .mAbout{
+            position: absolute;
+            font-size:2vmin;
+            top:5%;
+            left:5%;
+            right:5%;
+            color:cyan;
+        }
+        .mValue,.rValue,.hValue{
+            font-size:1.8vmin;
+        }
+        #formbutton{
+            position:absolute;
+            left:60%;
+            top:35%;
+            z-index:1;
+            cursor:pointer;
+        }
+
+
+        #dpDisplay > form > input[type="file"]
+        {
+            display:none;
+        }
+        .Custom-style{
+            background:linear-gradient(to right bottom,#263838,#a3c2c2);;
+            color:white;
+            font-size:2.5vmin;
+        }
+        
+        .icon_for_file{
+            position:absolute;
+            cursor:pointer;
+            left:45%;
+            top:25%;
+        }
+        .Custom-size{
+            color:white;
+            font-size:3vmin;
+        }
+        #ta{
+            position: absolute;
+            left:-45%;
+            top:65%;
+            color:white;
+        }
+        #tb{
+            position:absolute;
+            left:-120%;
+            top:100%;
+            color:white;
+        }
+        #userName{
+            position:absolute;
+            left:28%;
+            top:45%;
+            color:cyan;
+            font-size:3.8vmin;
+            letter-spacing:1vmin;
+            font-family: 'Krub', sans-serif;
+            text-shadow:2vmin 2vmin 5vmin black;
+        }
+        #msg{
+
+            position: absolute;
+            left:35%;
+            top:53%;
+            color:cyan;
+            font-size:2.8vmin;
+            letter-spacing:0.8vmin;
+            text-shadow:1vmin 1vmin 5vmin black;
+        }
+        .logoutbtn{
+            font-size:3vmin;
+        }
+        p{
+            font-family: 'Krub', sans-serif;
+        }
+        #dashboardIcons{
+            font-size: 4.8vmin;
+            position: absolute;
+            margin-top: 100%;
+            margin-left: 15%;
+            padding: 1vmin;
+            color: white;
+            float: left;
+        }
+        i{
+            font-size:4.8vmin;
+            padding: 1vmin;
+            transition: transform .3s;
+        }
+        i:hover{
+            cursor: pointer;
+            transform: scale(2);
+        }
+        .temp{
+            position:relative;
+            border-radius: 1vmin solid grey;
+        }
+        .temp button{
+            background-color: transparent;
+            border:none;
+        }
+        #yourLikesIcon{
+            position:absolute;
+            left:21vmin;
+            top:-7.8vmin;
+        }
+        #likedByIcon{
+            position:absolute;
+            left:10vmin;
+            top:-1vmin;
+        }
+        #shortlistIcon{
+            position: absolute;
+            left:30vmin;
+            top:-14vmin;
+        }
+       #profileIcon{
+            position: absolute;
+            left:1.3vmin;
+            top:0vmin;
+        }
+        #yourLikesIcon:hover
+        {
+            color: red;
+            transform: scale(2);
+        }
+        #likedByIcon:hover
+        {
+            color: green;
+        }
+        #profileIcon:hover
+        {
+            transform: scale(2);
+            color: #3B5998;
+        }
+        #shortlistIcon:hover
+        {
+            color: black;
+        }
+        *:focus{
+            outline: none;
+        }
+        .rating{
+            position: relative;
+            z-index:3;
+            font-size:3.5vmin;
+            margin-left:1vw;
+            margin-top:-1vh;
+            cursor:pointer;
+            color:cyan;
+        }
+        #feedback{
+            position:relative;
+            z-index:3;
+            font-size:3.5vmin;
+            margin-left:5vw;
+            margin-top:-5.5vh;
+            color:#545656;
+            cursor: pointer;
+            display: block;
+
+        }
+        .feedbackBtn{
+            border: none;
+            padding: 0px;
+            width:4vmin;
+            height:4vmin;
+            margin:1vmin;
+            border-radius:50%;
+            background:linear-gradient(to left,#545656,#263838);
+        }
+        
+        body{
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <img src="/images/logo22.png" alt="logos" onclick="location.href='/dashboard' " title="home page" >
+     <form id="searchForm" action="/dashboard/userProfile" method="GET">
+        <input id="searchInput" type="text" name="partner" placeholder=" search ">
+     </form>
+     <label for="searchInput"><p id="searchIcon"><span class="glyphicon glyphicon-search custom-color"></span></p></label>
+     <button id="logoutIcon" onclick="location.href='http://127.0.0.1:8081/logout'" type="button"><span class="glyphicon glyphicon-log-out logoutbtn" style="font-size:3vmin"></span></button>
+</div>
+<div id="profile">
+    <div id="dpDisplay"> 
+    <img id="dp" src="./userImages/<%= user.pname %>.jpg" alt="img">
+    <form action="/dpUpload" method="POST" enctype="multipart/form-data">
+        <input id="file_input" type="file" name="image" onchange="form.submit()">
+    </form>
+    <label for="file_input" class="icon_for_file">
+                <h4><span class="glyphicon glyphicon-camera Custom-size"></span></h4>
+                <h6 id="ta">CHANGE<br></h6>
+                <h6 id="tb">PROFILE_PHOTO</h6>
+    </label> 
+    </div>
+    <p id="userName">Hi , <span><%= user.pname %></span></p>
+    <p id="msg">Welcome</p>
+    <div id="dashboardIcons">
+        <i class="material-icons " style="font-size:6vmin" title="Profile" id="profileIcon" onclick="location.href='http://127.0.0.1:8081/dashboard/userProfile?partner=<%= user.pname %>'">person</i>
+        <form class="temp" action="/dashboard/userProfile/likedBy" method="GET">
+            <button  type="submit" name="pname" value="<%= user.pname %>"><i class="material-icons" style="font-size:5vmin" title="Interested in <%= user.pname %>" id="likedByIcon">face</i></button>
+        </form>
+        <form class="temp" action="/dashboard/userProfile/yourLikes" method="GET">
+            <button type="submit" name="pname" value="<%= user.pname %>"><i class="material-icons" style="font-size:5vmin" title="Your Likes" id="yourLikesIcon" >favorite</i></button>
+        </form>
+        <form class="temp" action="/dashboard/userProfile/shortList" method="GET">
+            <button type="submit" name="pname" value="<%= user.pname %>"><i class="material-icons" style="font-size:5vmin" title="ShortList" id="shortlistIcon">queue</i></button>
+        </form>
+    </div>
+</div>
+<div id="preferenceForm">
+    <p id="title"><span id="title1">I'm looking for a </span><span id="title2">aged</span><span id="title3">of religion</span><span id="title4">and mother tongue</span></p>
+    <form id="pform" action="/dashboard/preference" method="GET">
+         <input type="text" list="gender" name="gender" placeholder="Man/Woman" >
+         <input type="number" name="fromAge" min="18" max="60" value="18"> <span style="color: white;">to</span> 
+         <input type="number" name="toAge" min="18" max="60" value="60">
+         <input type="text" list="religions" name="religion" placeholder="Select">
+         <input type="text" list="motherTongueList" name="motherTongue" placeholder="Select">
+         <datalist id="gender">
+                <option value="male">
+                <option value="female">
+         </datalist>
+         <datalist id="religions">
+                <option value="Hindu">
+                <option value="Muslim">
+                <option value="Christian">
+                <option value="Sikh">
+                <option value="No Religion">
+                <option value="Spiritual">
+                <option value="Other">
+        </datalist>
+        <datalist id="motherTongueList">
+                <option value="Hindi">
+                <option value="Telugu">
+                <option value="English">
+                <option value="Assameese">
+                <option value="Bihari">
+                <option value="urdu">
+                <option value="Tamil">
+                <option value="Malayali">
+                <option value="Gujarathi">
+                <option value="Foreign language">
+                <option value="Other">
+        </datalist>
+        <input type="submit" id="submitBtn" name="submit" style="display: none;">
+    </form>
+</div>
+<div id="formbutton">
+    <label for="submitBtn" class="btn btn-default Custom-style">Explore</label>
+</div>
+<div id="bckImage">
+    <img src="/images/photo1.jpg">
+</div>
+<div class="slideShow">
+    
+        <% for(var i=0 ; i< members.length ;i+=3) { %>
+            <div class="slide1">
+            <% if (members[i%(members.length)].image) { %>
+            <img class="imgFit imgFit1" src="/userImages/<%= members[(i)%(members.length)].pname %>.jpg">
+            <% } else { %>
+            <img class="imgFit imgFit1" src="/images/images_5.jpg" alt="Upload image">
+            <% } %>
+            <p class="mName"><%= members[(i)%(members.length)].pname %><span class="mGender"> , <%= members[(i)%(members.length)].gender %></span></p>
+            <p class="mReligion">
+                <span class="rKey">Religion : </span><span class="rValue"><%= members[(i)%(members.length)].religion %> , </span>
+                <span class="hKey">Height : </span><span class="hValue"><%= members[(i)%(members.length)].height %>cm</span>
+            </p> 
+            <p class="mEdu">
+                <span class="mKey">Education : </span><span class="mValue"><%= members[(i)%(members.length)].qualification %> </span>
+            </p>
+            <p class="mAbout mAbout1">
+                <%= members[(i)%(members.length)].about %>
+            </p>
+           </div>
+           <div class="slide2">
+            <% if (members[(i+1)%(members.length)].image) { %>
+            <img class="imgFit imgFit2" src="/userImages/<%= members[(i+1)%(members.length)].pname %>.jpg">
+            <% } else { %>
+            <img class="imgFit imgFit2" src="/images/images_5.jpg" alt="Upload image">
+            <% } %>
+            <p class="mName"><%= members[(i+1)%(members.length)].pname %><span class="mGender"> , <%= members[(i+1)%(members.length)].gender %></span></p>
+            <p class="mReligion">
+                <span class="rKey">Religion : </span><span class="rValue"><%= members[(i+1)%(members.length)].religion %> , </span>
+                <span class="hKey">Height : </span><span class="hValue"><%= members[(i+1)%(members.length)].height %>cm</span>
+            </p> 
+            <p class="mEdu">
+                <span class="mKey">Education : </span><span class="mValue"><%= members[(i+1)%(members.length)].qualification %> </span>
+            </p>
+            <p class="mAbout mAbout2">
+                <%= members[(i+1)%(members.length)].about %>
+            </p>
+           </div>
+           <div class="slide3">
+            <% if (members[(i+2)%(members.length)].image) { %>
+            <img class="imgFit imgFit3" src="/userImages/<%= members[(i+2)%(members.length)].pname %>.jpg">
+            <% } else { %>
+            <img class="imgFit imgFit3" src="/images/images_5.jpg" alt="Upload image">
+            <% } %>
+            <p class="mName"><%= members[(i+2)%(members.length)].pname %><span class="mGender"> , <%= members[(i+2)%(members.length)].gender %></span></p>
+            <p class="mReligion">
+                <span class="rKey">Religion : </span><span class="rValue"><%= members[(i+2)%(members.length)].religion %> , </span>
+                <span class="hKey">Height : </span><span class="hValue"><%= members[(i+2)%(members.length)].height %>cm</span>
+            </p> 
+            <p class="mEdu">
+                <span class="mKey">Education : </span><span class="mValue"><%= members[(i+2)%(members.length)].qualification %> </span>
+            </p>
+            <p class="mAbout mAbout3">
+                <%= members[(i+2)%(members.length)].about %>
+            </p>
+           </div>
+        <% } %>
+
+        <a style="text-decoration: none;" class="prev" onclick="addSlide(-1)">&#10094;&#10094;</a>
+        <a style="text-decoration: none;" class="next" onclick="addSlide(+1)">&#10095;&#10095;</a>
+</div>
+<i class='far fa-laugh-wink rating' title="Rate Us" ></i>
+<div id="feedback">
+            <span>
+            <form action="/feedback" method="POST">
+              <button class="feedbackBtn" name="star" value="1" type="submit"><span class="glyphicon glyphicon-star stars0 " onclick="this.form.submit()"></span>
+              <button class="feedbackBtn" name="star" value="2" type="submit"><span class="glyphicon glyphicon-star stars1 " onclick="this.form.submit()"></span>
+              <button class="feedbackBtn" name="star" value="3" type="submit"><span class="glyphicon glyphicon-star stars2 " onclick="this.form.submit()"></span>
+              <button class="feedbackBtn" name="star" value="4" type="submit"><span class="glyphicon glyphicon-star stars3 " onclick="this.form.submit()"></span>
+              <button class="feedbackBtn" name="star" value="5" type="submit"><span class="glyphicon glyphicon-star stars4 " onclick="this.form.submit()"></span>
+            </form></span>
+</div>
+<script type="text/javascript">
+    var slideIndex=1;
+    /*var x = "<%= members[0].pname %>";
+    console.log(x); */
+    switchSlide(slideIndex);
+    function addSlide(factor)
+    {
+        slideIndex+=factor;
+        switchSlide(slideIndex);
+    }
+    function switchSlide(n)
+    {
+        var slides1=document.getElementsByClassName("slide1");
+        var slides2=document.getElementsByClassName("slide2");
+        var slides3=document.getElementsByClassName("slide3");
+        if(n>slides1.length)
+            slideIndex=1;
+        if(n<1)
+            slideIndex=slides1.length;
+        for(var i=0;i<slides1.length;i++)
+        {
+            slides1[i].style.display="none";
+        }
+        for(var i=0;i<slides2.length;i++)
+        {
+            slides2[i].style.display="none";
+        }
+        for(var i=0;i<slides3.length;i++)
+        {
+            slides3[i].style.display="none";
+        }
+        slides1[slideIndex-1].style.display="block";
+        slides2[slideIndex-1].style.display="block";
+        slides3[slideIndex-1].style.display="block";
+    }
+</script>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+           $(".mAbout").css("display","none");
+           $(".slide1").hover(function(){
+               $(".mAbout1").css("display","block");
+               $(".imgFit1").css("filter","blur(6px)");
+           },
+             function(){
+                $(".mAbout1").css("display","none");
+                 $(".imgFit1").css("filter","blur(0px)");
+             }
+              
+           );
+           $(".slide2").hover(function(){
+               $(".mAbout2").css("display","block");
+               $(".imgFit2").css("filter","blur(6px)");
+           },
+             function(){
+                $(".mAbout2").css("display","none");
+                 $(".imgFit2").css("filter","blur(0px)");
+             }
+              
+           );
+           $(".slide3").hover(function(){
+               $(".mAbout3").css("display","block");
+               $(".imgFit3").css("filter","blur(6px)");
+           },
+             function(){
+                $(".mAbout3").css("display","none");
+                 $(".imgFit3").css("filter","blur(0px)");
+             }
+              
+           );
+
+
+           $(".icon_for_file").hide();
+           $("#dpDisplay").hover(function(){
+                  $("#dp").css("opacity","0.7");
+                  $("#dp").css("filter","blur(2px)");
+                  $("#dp").css("border","2px solid #66ff99");
+                  $(".icon_for_file").show(200);
+           },
+             function(){
+                   $("#dp").css("opacity","1");
+                   $("#dp").css("filter","blur(0px)");
+                   $("#dp").css("border","2px solid white");
+                  $(".icon_for_file").hide(200);
+
+             }
+           );
+
+           $("#searchInput").hide();
+           $("#searchIcon").click(function(){
+                $("#searchInput").toggle(600);
+           });
+             
+          $("#feedback").hide();
+          $(".rating").click(function(){
+              $("#feedback").toggle(600);
+          })
+           
+           $(".stars0").hover(function(){
+                $(".stars0").css("color","#ffa366");
+           },
+             function()
+             {
+                $(".stars0").css("color","#545656");
+             }
+           );
+           $(".stars1").hover(function(){
+                $(".stars0").css("color","#ff944d");
+                $(".stars1").css("color","#ff944d");
+           },
+             function()
+             {
+                $(".stars0").css("color","#545656");
+                $(".stars1").css("color","#545656");
+             }
+           );
+           $(".stars2").hover(function(){
+                $(".stars0").css("color","#ff8533");
+                $(".stars1").css("color","#ff8533");
+                $(".stars2").css("color","#ff8533");
+           },
+             function()
+             {
+                $(".stars0").css("color","#545656");
+                $(".stars1").css("color","#545656");
+                $(".stars2").css("color","#545656");
+             }
+           );
+           $(".stars3").hover(function(){
+                $(".stars0").css("color","#ff751a");
+                $(".stars1").css("color","#ff751a");
+                $(".stars2").css("color","#ff751a");
+                $(".stars3").css("color","#ff751a");
+           },
+             function()
+             {
+                $(".stars0").css("color","#545656");
+                $(".stars1").css("color","#545656");
+                $(".stars2").css("color","#545656");
+                $(".stars3").css("color","#545656");
+             }
+           );$(".stars4").hover(function(){
+                $(".stars0").css("color","#ff6600");
+                $(".stars1").css("color","#ff6600");
+                $(".stars2").css("color","#ff6600");
+                $(".stars3").css("color","#ff6600");
+                $(".stars4").css("color","#ff6600");
+           },
+             function()
+             {
+                $(".stars0").css("color","#545656");
+                $(".stars1").css("color","#545656");
+                $(".stars2").css("color","#545656");
+                $(".stars3").css("color","#545656");
+                $(".stars4").css("color","#545656");
+             }
+           );
+    });
+</script>
+</html>

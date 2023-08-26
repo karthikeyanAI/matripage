@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>start</title>
+  <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+  <title>Matrimony Start Page</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Krub:300,400" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/Capture.PNG">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <style type="text/css">
+       #header{
+       position:fixed;
+       top:0%;
+       width:100vw;
+       height:10vmin;
+       background:linear-gradient(to right,#538282,#576363);
+
+       }
+        #header img{
+        float: left;
+        width: 8vw;;
+        height: 7.5vh;
+        background: #555;
+        cursor: pointer;
+        margin-left: 0.5vw;
+        margin-top:0.5%;
+        /*border-radius: 15px;*/
+        } 
+       .icons{
+          color:white;
+          float:right;
+          width:8%;
+          background:linear-gradient(to right,#538282,#576363);
+          padding: 2px;
+          margin-top: 0.75em;
+          margin-left:0.5em;
+          border:1px solid grey;
+       }
+       .icons:hover {
+        background-color: white;
+        color:#ff6600;;
+       }
+       .headerDiv{
+        text-align: center;
+        font-size: 1.25vw;
+        font-family: 'Krub', sans-serif;
+       }
+       #Login{
+        
+        position:relative;
+        z-index:2;
+        border-bottom: 15%; 
+        margin-top:10%;
+        margin-left:35%;
+        width:30%;
+        height:45vmin;  
+        background-color: lightgrey;
+        border-radius: 1vmin;
+        padding: 2vmin;
+        opacity:0.8;
+       }
+        #Form {
+         background-color:black;
+       }
+       .slideShow{
+           position:relative;
+           width:100vw;
+           height:80vmin;
+           margin-top:-66.5vmin/*-500px*/;
+           z-index: -1;
+       }
+       .controls{
+          position:absolute;
+          top:50%;
+          left:2%;
+          z-index:2;
+       }
+       #rightCtrl{
+           left:96%;
+       }
+       .slides >img{
+           position: absolute;/**/
+           z-index:-1;
+           left:0%;
+           width:100%;
+           top:95.6%;
+           height:110%; /**/
+
+       }
+       input[type=email] ,input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px;
+        border-radius: 4px;
+       }
+      input[type=email]:focus ,input[type=password]:focus {
+      border: 3px solid #555;
+      }
+      input[type=button], input[type=submit] {
+      background-color: black;
+      border-radius: 5px;
+      color: white;
+      padding: 10px 10px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+      width:100%;
+      font-size: 1.5vw;
+      padding-right : 5%;
+      }
+      button {
+        background-color: black;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 10px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        width:100%;
+        font-size: 1.5vw;
+        padding-right : 5%;
+        }
+        #btns{
+          margin-right:20px;
+        }
+       
+        #quote{
+          position:absolute;
+          left:0%;
+          top:95%;
+          width:100%;
+          height:40%;
+          background:linear-gradient(to right bottom,#ff8080,#33cccc);
+          color:black;
+        }
+        #quoteMsg1{
+          position: absolute;
+          left:30%;
+          top:20%;
+          font-size:4vmin;
+          font-weight:700;
+          font-family:monospace;
+        }
+        #quoteMsg2{
+          position: absolute;
+          left:20%;
+          top:40%;
+          font-size:4vmin;
+          font-weight:700;
+          font-family:monospace;
+        }
+        #quoteMsg3{
+          position: absolute;
+          left:24%;
+          top:65%;
+          font-size:4.6vmin;
+          color:black;
+          font-family:monospace;
+          text-shadow:2px 2px #33cccc;
+          font-weight:800;
+        }
+        #stories{
+          position:absolute;
+          left:0%;
+          right:0%;
+          height:60%;
+          top:135%;
+          background-color:white;
+        }
+        #sTop
+        {
+          position: absolute;
+          top:5%;
+          left:35%;
+          font-size:4vmin;
+          color:red;
+          letter-spacing:4px;
+          font-family:sans-serif;
+          font-weight:600;
+        }
+        #story1,#story2,#story3{
+          position: absolute;
+          left:10%;
+          top:28%;
+          width:20%;
+          height:62%;
+          background-color:white;
+          border:1px solid grey ;
+          border-radius:1%;
+          box-shadow:5px 5px 5px 1px grey;
+        }
+        #story2{
+          left:40%;
+        }
+        #story3{
+          left:70%;
+        }
+        .storyImg{
+          position:absolute;
+          top:5%;
+          left:5%;
+          width:90%;
+          height:60%;
+        }
+        .coupleNames{
+          position: absolute;
+          top:68%;
+          left:30%;
+          font-size:2.1vmin;
+          font-weight:600;
+          color:#666699;
+        }
+        .coupleStory{
+          position: absolute;
+          top:77%;
+          left:1%;
+          right:1%;
+          font-size:1.5vmin;
+        }
+        #footer{ 
+        position:absolute;
+        background:#323438;
+        top:195%;
+        width:100%;
+        height:40%;
+       }
+       #About{
+          color: white;
+       }
+       #divider{
+          position:absolute;
+          top:47.4%;
+          left:60%;
+           width:22vmin;
+          height:5%;
+          border-radius:5%/5%;
+          transform:skew(6deg,120deg);
+          background-color:#f44242;
+       }
+        #AboutUs{
+           position:absolute;
+           left:14%;
+           top:10%;
+           font-family:sans-serif;
+           font-size:3vmin;
+        }
+        #AboutMsg{
+          position: absolute;
+          left:2%;
+          width:30%;
+          top:32%;
+          font-size:1.8vmin;
+          letter-spacing:1px;
+          color:#f44242;
+        }
+        #AboutTeam{
+          position: absolute;
+          left:45%;
+          top:10%;
+          font-family:sans-serif;
+          font-size:3vmin;
+        }
+        .Team {
+          position: absolute;
+          left:35%;
+          top:30%;
+          width:15vmin;
+          height:15vmin;
+          border-radius:50%;
+          border:2px solid #323438;
+        }
+        #img2{
+          position: absolute;
+          left:45%;
+        }
+        #img3{
+          position: absolute;
+          left:55%;
+        }
+        #vam,#nit,#mad{
+          position: absolute;
+          left:37%;
+          top:43%;
+          color: white;
+        }
+        #nit{
+           left:47%;
+        }
+        #mad{
+          left:57%;
+        }
+        #copyrights{
+          position:absolute;
+          left:2%;
+          top:70%;
+          font-size:1.6vmin;
+          color:white;
+
+        }
+        #teamId{
+          position: absolute;
+          left:25%;
+          top:90%;
+          font-size:2vmin;
+          color:cyan;
+          letter-spacing:1px;
+        }
+        #version{
+          position:absolute;
+          left:2%;
+          top:76%;
+          font-size:1.6vmin;
+          color:white;
+        }
+        .heart-color{
+          color:red;
+        }
+        #Feedback{
+          position: absolute;
+          left:65%;
+          width:35%;
+          height:100%;
+
+       }
+       #FeedbackHead{
+          position: absolute;
+          left:45%;
+          top:10%;
+          color:white;
+          font-family:sans-serif;
+          font-size:3vmin;
+
+       }
+       #mailTxt{
+         position: absolute;
+         left:20%;
+         top:30%;
+         font-size:2.5vmin;
+         color:#ff6600;
+         letter-spacing:1px;
+       }
+       #gmailIcon{
+         position: absolute;
+         left:50%;
+         top:31%;
+         font-size:2.2vmin;
+         color:grey;
+       }
+       .gmail{
+         color :red;
+       }
+      
+        #sm{
+        position: absolute;
+        left:30%;
+        top:55%;
+        font-size:2.5vmin;
+        font-family:monospace;
+        letter-spacing:6px;
+        color: white;
+       }
+       #fIcon,#iIcon{
+          position: absolute;
+          left:40%;
+          top:65%;
+          width:10%;
+          height:10%;
+          
+       }
+       .fCol{
+          color: #66a3ff;
+          font-size: 20px;
+       }
+       #fIcon > button{
+          border:none;
+          background-color:#323438;
+       }
+       #iIcon{
+           color: white;
+           left:60%;
+       }
+       .iCol{
+          font-size:20px;
+          color: #ff5050;
+
+       }
+       #iIcon >button{
+          border:none;
+          background-color:#323438;
+       }
+          
+       *:focus{
+        outline:none;
+       }
+       body{
+        overflow-x: hidden;
+        scroll-behavior:smooth;
+       }
+      input[type=button]:hover, input[type=submit]:hover {
+      background-color: white; /* Green */
+      color: black;
+      border:2px solid black;
+      }
+      b{
+        font-size: 1.25vw;
+        font-family: 'Krub', sans-serif;
+      }
+      *:focus{
+        outline:none;
+      }
+    </style>
+</head>
+<body>
+   <div id="header">
+         <!--img src="/images/logo2.png" alt="logos" onclick="location.href='/' " title="home page" -->
+	<h2>Matrimony Portal </h2>
+        <div id="btns">
+           <button class="icons" id="RegisterIcon" onclick="location.href='/register'">
+                <div class="headerDiv">Register</div>
+           </button>
+           <button class="icons" id="LoginIcon" onclick="location.href='/login'">
+               <div class="headerDiv">Login</div>
+           </button>
+           <button class="icons" id="FeedbackIcon">
+               <div class="headerDiv">Feedback</div>
+           </button>
+           <button class="icons" id="AboutIcon">
+               <div class="headerDiv">About</div>
+           </button>
+        </div>
+   </div>
+   <div class="slideShow">
+       <div class="slides"> 
+         <img style="opacity:1" src="/images/leslie-rose-kit-harington.jpg">
+       </div>
+       <div class="slides">
+         <img  style="opacity:1" src="images/viruska.jpg">
+       </div>
+       <div class="slides">
+         <img  style="opacity:1" src="images/harry-meghan.jpg">
+       </div>
+       <div class="slides">
+         <img  style="opacity:1" src="images/chaisam.jpg">
+       </div>
+       <a class="controls" onclick="nextSlide(+1)"><h2>&#10094;&#10094;</h2></a>
+       <a class="controls" id="rightCtrl" onclick="nextSlide(-1)"><h2>&#10095;&#10095;</h2></a>
+   </div>
+   <div id="Login">
+    <span style="color:red;"><i><%= loginAgain %></i></span>
+      <form id="loginForm" action="/login" method="POST">
+        <b>Email </b><input type="email" name="userEmail"><br>
+        <b>Password </b><input type="password" name="userPassword"><br>
+        <div>
+          <span style="color:red;"><i><%= passwordIncorrect %></i></span>
+          <span style="color:green;"><i><%= userNotRegistered %></i></span>
+        </div>
+        <input type="submit" name="login" value="LOGIN">
+      </form>
+   </div>
+   <div id="quote">
+      <p id="quoteMsg1">We do not create marriage from scratch.</p>
+      <p id="quoteMsg2">Instead,in the elegant language of the marriage ceremony,</p>
+      <p id="quoteMsg3">' We Enter Into The Holy Estate Of Matrimony '</p>
+   </div>
+   <div id="stories">
+      <p id="sTop">Over 1 Million Happy Stories</p>
+      <div id="story1">
+         <img class="storyImg" src="/images/story1.jpg">
+         <p class="coupleNames">Sanju & Nithya</p>
+         <p class="coupleStory">"Our belief is that Relationships are made in heaven before birth, but Wedlock.com came into life by Grace of God as the vital medium of true relationship."</p>
+      </div>
+      <div id="story2">
+         <img class="storyImg" src="/images/story3.jpg">
+         <p class="coupleNames">Iqbal & Aishah</p>
+         <p class="coupleStory">"Found My Mr. Perfect ...WEDLOCK started my journey as arrange marriage but i am glad to say its Arrange cum Love marriage i am so very thankful to Wedlock.com"</p>
+      </div>
+      <div id="story3">
+         <img class="storyImg" src="/images/story2.jpg">
+         <p class="coupleNames">Ryan & Skyler</p>
+         <p class="coupleStory">"Thank you for connecting us. We clicked instantly and within a week we knew we wanted to be with each other forever. Thank you :)"</p>
+      </div>
+   </div>
+    <div id="footer">
+      <div id="divider"></div>
+      <div id="About">
+         <p id="AboutUs">About Us</p>
+         <p id="AboutMsg">Projectworlds project to offer the best free  responsive website with modern design built with latest technologies like  HTML5, CSS3, Bootstrap, JavaScript, ExpressJS, AngularJs, and jQuery.</p>
+         <p id="copyrights">&copy; Copyright 04.11.2018 , All Rights Reserved .</p>
+         <p id="version">Version 1.0</p>
+         <p id="teamId">Made with <span class="glyphicon glyphicon-heart heart-color"></span> Projectworlds</p>
+         
+      </div>
+      <div id="Feedback">
+         <p id="FeedbackHead">Feedback</p>
+         <p id="mailTxt">Shoot a MAIL at</p>
+         <p id="gmailIcon">
+            <span><i class="fa fa-google-plus gmail"></i></span><span>  projectworldsofficial@gmail.com</span>
+         </p>
+        <p id="sm">connect  through</p>
+        <p></p>
+        <p id="fIcon" ><button onclick="'https://www.youtube.com/channel/UCFMkpvtYjSAPXUPjImQK7bg?sub_confirmation=1'" target="_blank"><i class="fa fa-facebook-f fCol" ></i></button></p>
+        <p id="iIcon"><button onclick="'https://www.instagram.com/projectworlds/'" target="_blank"><i class="fa fa-instagram iCol"></i> </button></p>
+      </div>
+   </div>
+   <script type="text/javascript">
+      var appA=angular.module('signA',[]);
+      appA.controller('ctrlA',function($scope){
+
+      });
+      var appB=angular.module('signB',[]);
+      appB.controller('ctrlB',function($scope){
+
+      });
+      angular.bootstrap(document.getElementById("rForm2"),['signB']);
+     
+    
+   </script>
+   <!--<footer>DBMS PROJECT TEAM MATRIMONY</footer>-->
+</body>
+<script type="text/javascript">
+    var slideIndex=1;
+    var factor=1;
+    switchSlides(slideIndex);
+            
+            setInterval(function addSlide()
+            {
+              console.log("called");
+              slideIndex+=factor;
+              console.log(slideIndex);
+              switchSlides(slideIndex);
+               
+            },5000);
+            function switchSlides(n)
+            {
+              console.log("wat");
+               var slides=document.getElementsByClassName("slides");
+               if(n>slides.length)
+                  slideIndex=1;
+                if(n<1)
+                  slideIndex=slides.length;
+                for(var i=0;i<slides.length;i++)
+                  slides[i].style.display="none";
+                slides[slideIndex-1].style.display="block";
+            }
+            function nextSlide(x)
+            {
+              slideIndex+=x;
+              switchSlides(slideIndex);
+            }
+         $(document).ready(function(){
+
+            $("#FeedbackIcon").click(function(){
+            $('html,body').animate({
+                scrollTop:$("#Feedback").offset().top
+            },1500);
+            });
+             $("#AboutIcon").click(function(){
+            $('html,body').animate({
+                scrollTop:$("#About").offset().top
+            },1500);
+        });
+             $("#AboutUs").hover(function(){
+                 $("#AboutUs").css("border-bottom","2px solid #ff6600");
+             },
+             function(){
+                $("#AboutUs").css("border-bottom","none");
+             }
+             );
+             $("#AboutTeam").hover(function(){
+                 $("#AboutTeam").css("border-bottom","2px solid #ff6600");
+             },
+             function(){
+                $("#AboutTeam").css("border-bottom","none");
+             }
+             );
+             $("#FeedbackHead").hover(function(){
+                 $("#FeedbackHead").css("border-bottom","2px solid #ff6600");
+             },
+             function(){
+                $("#FeedbackHead").css("border-bottom","none");
+             }
+             );
+             $("#vam,#nit,#mad").css("display","none");
+             $("#img1,#vam").hover(function(){
+                 $("#img1").css("opacity","0.6");
+                 $("#vam").css("display","block");
+                 $("#img1").css("border","2px solid #ff6600");
+             },
+             function(){
+                $("#img1").css("opacity","1");
+                $("#vam").css("display","none");
+                $("#img1").css("border","2px solid #323438");
+             }
+             );
+             $("#img2,#nit").hover(function(){
+                 $("#img2").css("opacity","0.6");
+                 $("#nit").css("display","block");
+                 $("#img2").css("border","2px solid #ff6600");
+             },
+             function(){
+                $("#img2").css("opacity","1");
+                $("#nit").css("display","none");
+                $("#img2").css("border","2px solid #323438");
+             }
+             );
+             $("#img3,#mad").hover(function(){
+                 $("#img3").css("opacity","0.6");
+                 $("#mad").css("display","block");
+                 $("#img3").css("border","2px solid #ff6600");
+             },
+             function(){
+                $("#img3").css("opacity","1");
+                $("#mad").css("display","none");
+                $("#img3").css("border","2px solid #323438");
+             }
+             );
+             $("#fIcon").hover(function(){
+                 $(".fCol").css("font-size","30px");
+             },
+             function(){
+                $(".fCol").css("font-size","20px");
+             }
+             );
+              $("#iIcon").hover(function(){
+                 $(".iCol").css("font-size","30px");
+             },
+             function(){
+                $(".iCol").css("font-size","20px");
+             }
+             );
+         });
+          
+   
+
+</script>
+</html>
